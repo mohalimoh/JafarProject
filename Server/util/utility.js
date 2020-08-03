@@ -1,4 +1,5 @@
 const Log = require('./Logger');
+const fs = require('fs');
 
 map = (source, dest, excludeList = []) => {
     let propertyList = Object.getOwnPropertyNames(source).filter(m => !excludeList.includes(m));
@@ -22,7 +23,12 @@ sendResponse = (req, res, data, result = true, code = 200) => {
         }))
 }
 
+loadText = (filePath) => {
+    return fs.readFileSync(filePath, { encoding: 'utf-8' })
+}
+
 module.exports = {
     Map: map,
+    LoadText: loadText,
     SendResponse: sendResponse
 }

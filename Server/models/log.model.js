@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { db } = require('../app-setting')
-const con = mongoose.createConnection(`mongodb://${db.mongo.log.address}/${db.mongo.log.name}`, { useNewUrlParser: true })
+const con = mongoose.createConnection(`mongodb://${db.mongo.log.address}/${db.mongo.log.name}`, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const logSchema = new mongoose.Schema({
   type: { type: String, required: true, lowercase: true, enum: ['error', 'warning', 'info', 'bcts'], default: 'info' },

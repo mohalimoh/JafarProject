@@ -4,11 +4,20 @@ module.exports = {
         mongo: {
             main: {
                 name: 'DB_NAME',
-                address: 'mongo:27017'
+                address: 'localhost:27017'
             },
             log: {
                 name: 'DB_NAME_log',
-                address: 'mongo:27017'
+                address: 'localhost:27017'
+            }
+        },
+        sqlConfig: {
+            driver: 'mssql',
+            config: {
+                user: 'appuser',
+                password: 'sHRCTp@ss!)!%%',
+                server: '10.4.1.4\\scts',
+                database: 'Shrct'
             }
         }
     },
