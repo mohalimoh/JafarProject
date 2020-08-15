@@ -3,21 +3,21 @@ module.exports = {
     db: {
         mongo: {
             main: {
-                name: 'DB_NAME',
+                name: 'neginDb',
                 address: 'localhost:27017'
             },
             log: {
-                name: 'DB_NAME_log',
+                name: 'neginDb_log',
                 address: 'localhost:27017'
             }
         },
         sqlConfig: {
             driver: 'mssql',
             config: {
-                user: 'appuser',
-                password: 'sHRCTp@ss!)!%%',
-                server: '10.4.1.4\\scts',
-                database: 'Shrct'
+                user: 'sa',
+                password: '8852po',
+                server: '172.24.17.15',
+                database: 'NeginDb'
             }
         }
     },

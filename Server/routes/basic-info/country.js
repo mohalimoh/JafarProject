@@ -6,12 +6,26 @@ const setting = require("../../app-setting");
 const sworm = require("sworm");
 const db = sworm.db(setting.db.sqlConfig);
 
+var country = db.model({
+    table: 'Countries',
+    addCountry: function (newCountry) {
+        this.countryName = newCountry.name,
+            this.symbol = newCountry.symbol || '---'
+    }
+});
+
 router.route('/')
     .get(async (req, res) => {
-        SendResponse(req, res, { capitan: 'loaded' })
+        console.log("req", req)
+        let result = await db.query("SELECT * FROM dbo.Countries AS C")
+        console.log("result", result)
+        SendResponse(req, res, { capitan: result })
     })
     .post(async (req, res) => {
-        SendResponse(req, res, { capitan: 'Added' })
+        var newCountry = country();
+        newCountry.addCountry(req.body);
+        let result = await newCountry.save()
+        SendResponse(req, res, { capitan: result })
     })
     .put(async (req, res) => {
         SendResponse(req, res, { capitan: 'Updated' })
