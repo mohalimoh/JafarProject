@@ -22,7 +22,7 @@ router.route('/')
         console.log("req", req)
         let result = await db.query("SELECT * from Countries")
 
-        SendResponse(req, res, { capitan: result })
+        SendResponse(req, res, result)
     })
     .post(async (req, res) => {
         var newCountry = country();
