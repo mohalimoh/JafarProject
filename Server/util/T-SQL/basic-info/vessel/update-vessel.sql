@@ -4,7 +4,7 @@ EXEC dbo.sp_Node_UpdateVessel
 @GrossTonage = @grossTonage,
 @Flag = @flag,
 @Nationality = @nationality,
-@VesselLength =@vesselLength
+@VesselLength =@vesselLength,
 @NumOfBays = @numOfBays,
 @ActiveCraneQty = @activeCraneQty,
 @CallSign = @callSign
